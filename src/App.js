@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import ChooseGame from './pages/ChooseGame/ChooseGame';
-// import GamePage from './pages/GamePage/GamePage';
+import PageRouter from "./Router";
 
 function App() {
   return (
-    <ChooseGame />
+    <PageRouter />
   );
 }
 

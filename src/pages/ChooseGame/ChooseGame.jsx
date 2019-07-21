@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { Menu, Icon, Card } from 'antd';
 
 import './ChooseGame.less';
@@ -61,12 +61,14 @@ export default class ChooseGame extends React.Component {
           {
             [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
               return (
-                <Card
-                  onClick={this.toPlayGamePage}
-                  className={'gameCard'} hoverable loading={this.state.loading}
-                  cover={<img style={{height: 100}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                  <Card.Meta avatar={<Icon type="appstore" />} description={`游戏 ${item}`} />
-                </Card>
+                <Link  to='/gamePage'>
+                  <Card
+                    // onClick={this.toPlayGamePage}
+                    className={'gameCard'} hoverable loading={this.state.loading}
+                    cover={<img style={{height: 100}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                    <Card.Meta avatar={<Icon type="appstore" />} description={`游戏 ${item}`} />
+                  </Card>
+                </Link>
               );
             })
           }
