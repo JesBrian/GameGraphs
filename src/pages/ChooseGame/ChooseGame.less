@@ -1,0 +1,39 @@
+
+.header {
+	width: 100%;
+	top: 0; 
+	left: 0; 
+	position: fixed;
+	z-index: 10;
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+	padding: 55px 5px 5px;
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.gameCard {
+	width: 180px;
+	margin: 0 0 8px;
+	padding: 5px 5px 0;
+
+	.ant-card- {
+		&body {
+			padding: 12px 5px 8px;
+		}
+		&loading-content {
+			margin-top: -4px;
+			height: 21px;
+			overflow: hidden;
+		}
+		&meta-avatar {
+			padding-right: 5px;
+		}
+	}
+}

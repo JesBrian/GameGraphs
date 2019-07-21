@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import GamePage from './pages/GamePage/GamePage';
+import ChooseGame from './pages/ChooseGame/ChooseGame';
+// import GamePage from './pages/GamePage/GamePage';
 
 function App() {
   return (
-    <GamePage />
+    <ChooseGame />
   );
 }
 
