@@ -9,7 +9,14 @@ import './ChooseGame.less';
  */
 export default class ChooseGame extends React.Component {
   state = {
-    current: 'mail',
+    current: 'news',
+    typeInfo: {
+      news: {id: 'news', label: '新游上架', icon: 'mail'},
+      reaction: {id: 'reaction', label: '反应', icon: 'appstore'},
+      barrier: {id: 'barrier', label: '闯关', icon: 'mail'},
+      leisure: {id: 'leisure', label: '休闲', icon: 'appstore'},
+      competition: {id: 'competition', label: '竞技', icon: 'mail'},
+    },
     loading: true
   };
   
@@ -32,39 +39,34 @@ export default class ChooseGame extends React.Component {
   }
   
   render() {
+    const {
+      loading, typeInfo, current
+    } = this.state;
+    
     return (
       <div>
-        <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className={'header'} >
-          <Menu.Item key="mail">
-            <Icon type="mail" />
-            新游上架
-          </Menu.Item>
-          <Menu.Item key="mail1">
-            <Icon type="mail" />
-            闯关
-          </Menu.Item>
-          <Menu.Item key="app">
-            <Icon type="appstore" />
-            反应
-          </Menu.Item>
-          <Menu.Item key="app1">
-            <Icon type="appstore" />
-            休闲
-          </Menu.Item>
-          <Menu.Item key="app2">
-            <Icon type="appstore" />
-            竞技
-          </Menu.Item>
+        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" className={'header'} >
+          {
+            Object.keys(typeInfo).map(key => {
+              return (
+                <Menu.Item key={key}>
+                  <Icon type={typeInfo[key].icon} />{typeInfo[key].label}
+                </Menu.Item>
+              );
+            })
+          }
         </Menu>
-    
+        
+        <div className={'nowTypeLabel'}>{typeInfo[current].label}</div>
+        
         <div className={'content'}>
           {
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => {
               return (
-                <Link  to='/gamePage'>
+                <Link to='/gamePage'>
                   <Card
                     // onClick={this.toPlayGamePage}
-                    className={'gameCard'} hoverable loading={this.state.loading}
+                    className={'gameCard'} hoverable loading={loading}
                     cover={<img style={{height: 100}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
                     <Card.Meta avatar={<Icon type="appstore" />} description={`游戏 ${item}`} />
                   </Card>
@@ -73,7 +75,7 @@ export default class ChooseGame extends React.Component {
             })
           }
         </div>
-        
+      
       </div>
     );
   }

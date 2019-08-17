@@ -4,13 +4,25 @@
 	top: 0; 
 	left: 0; 
 	position: fixed;
+	z-index: 15;
+}
+
+.nowTypeLabel {
+	width: 100%;
+	top: 43px;
+	left: 0;
+	padding-left: 8px;
+	line-height: 33px;
+	position: fixed;
 	z-index: 10;
+	background: #FFF;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .content {
 	width: 100%;
 	height: 100%;
-	padding: 55px 5px 5px;
+	padding: 88px 8px 0;
 	display: flex;
 	flex: 1;
 	flex-wrap: wrap;
@@ -19,13 +31,14 @@
 }
 
 .gameCard {
-	width: 180px;
-	margin: 0 0 8px;
+	width: 175px;
+	margin: 0 0 9px;
 	padding: 5px 5px 0;
+	box-sizing: border-box;
 
 	.ant-card- {
 		&body {
-			padding: 12px 5px 8px;
+			padding: 9px 3px 4px;
 		}
 		&loading-content {
 			margin-top: -4px;
