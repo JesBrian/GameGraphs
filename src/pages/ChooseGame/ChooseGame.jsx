@@ -57,7 +57,9 @@ export default class ChooseGame extends React.Component {
           }
         </Menu>
         
-        <div className={'nowTypeLabel'}>{typeInfo[current].label}</div>
+        <div className={'nowTypeLabel'}>
+          <Icon type="right" className={'icon'} />{typeInfo[current].label}
+        </div>
         
         <div className={'content'}>
           {
