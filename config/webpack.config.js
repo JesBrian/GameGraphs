@@ -329,7 +329,7 @@ module.exports = function(webpackEnv) {
               test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
               loader: require.resolve('url-loader'),
               options: {
-                limit: 1000,
+                limit: 200,
                 name: 'static/media/[name].[hash:8].[ext]',
               },
             },
