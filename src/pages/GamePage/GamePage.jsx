@@ -22,6 +22,7 @@ export default class GamePage extends React.Component {
       w: 0,
       h: 0,
       rem: 0,
+      // eslint-disable-next-line no-unused-vars
     }, bird = {};
     
     window.game = new Game({
@@ -29,7 +30,7 @@ export default class GamePage extends React.Component {
       width: '100',
       height: '100',
       transparent: true,
-      parent: 'canvas',
+      parent: 'root',
       // physics: {
       //   default: 'arcade',
       //   arcade: {
@@ -90,6 +91,10 @@ export default class GamePage extends React.Component {
     function gameStart() {
       console.log('gameStart')
     }
+  }
+  
+  componentWillUnmount() {
+    document.querySelector('canvas').remove();
   }
   
   render() {

@@ -44,7 +44,7 @@ export default class ChooseGame extends React.Component {
     } = this.state;
     
     return (
-      <div>
+      <div className={'chooseGame'}>
         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" className={'header'} >
           {
             Object.keys(typeInfo).map(key => {
@@ -63,13 +63,13 @@ export default class ChooseGame extends React.Component {
         
         <div className={'content'}>
           {
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => {
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(item => {
               return (
-                <Link to='/gamePage'>
+                <Link className={'gameLink'} to='/gamePage'>
                   <Card
                     // onClick={this.toPlayGamePage}
                     className={'gameCard'} hoverable loading={loading}
-                    cover={<img style={{height: 100}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                    cover={<img style={{width: '100%', height: '100%', borderRadius: 3}} src={require(`../../assets/games/FlyBird/img/preview.jpg`)} />}>
                     <Card.Meta avatar={<Icon type="appstore" />} description={`游戏 ${item}`} />
                   </Card>
                 </Link>
@@ -77,7 +77,6 @@ export default class ChooseGame extends React.Component {
             })
           }
         </div>
-      
       </div>
     );
   }
