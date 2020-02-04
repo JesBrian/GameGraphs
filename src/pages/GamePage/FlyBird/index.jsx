@@ -1,21 +1,25 @@
 import React from 'react';
 import Phaser, {Game} from 'phaser'
 
-import './GamePage.less';
+import './index.less';
 
 let imgs = [
   'background', 'title', 'startBtn', 'bird', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
 ], imgsPath = {};
-imgs.forEach(key => {
-  imgsPath[key] = require(`../../assets/games/FlyBird/img/${key}.png`);
-});
 
 /**
  * 游戏页面
  */
-export default class GamePage extends React.Component {
+export default class Index extends React.Component {
   constructor(props) {
+    console.log('FiyBird GamePage Construct');
+
     super(props);
+
+    imgs.forEach(key => {
+      imgsPath[key] = require(`../../../assets/games/FlyBird/img/${key}.png`);
+    });
+
     this.state = {};
     
     let g_config = {

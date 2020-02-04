@@ -4,6 +4,8 @@ import { Menu, Icon, Card } from 'antd';
 
 import './ChooseGame.less';
 
+import gameConfig from '../../assets/config/games.js';
+
 /**
  * 选择游戏类型页面
  */
@@ -11,11 +13,11 @@ export default class ChooseGame extends React.Component {
   state = {
     current: 'news',
     typeInfo: {
-      news: {id: 'news', label: '新游上架', icon: 'mail'},
-      reaction: {id: 'reaction', label: '反应', icon: 'appstore'},
-      barrier: {id: 'barrier', label: '闯关', icon: 'mail'},
-      leisure: {id: 'leisure', label: '休闲', icon: 'appstore'},
-      competition: {id: 'competition', label: '竞技', icon: 'mail'},
+      news: {id: 'news', label: '新游上架', icon: 'mail', games: ['BoxHead', 'FlyBird', 'Russian']},
+      reaction: {id: 'reaction', label: '反应', icon: 'appstore', games: ['FlyBird', 'Russian']},
+      barrier: {id: 'barrier', label: '闯关', icon: 'mail', games: ['BoxHead']},
+      leisure: {id: 'leisure', label: '休闲', icon: 'appstore', games: ['FlyBird']},
+      competition: {id: 'competition', label: '竞技', icon: 'mail', games: ['BoxHead']},
     },
     loading: true
   };
@@ -34,7 +36,7 @@ export default class ChooseGame extends React.Component {
     setTimeout(() => {
       this.setState({
         loading: false
-      })
+      });
     }, 1500);
   }
   
@@ -63,14 +65,14 @@ export default class ChooseGame extends React.Component {
         
         <div className={'content'}>
           {
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(item => {
+            typeInfo[current].games.map(item => {
               return (
-                <Link className={'gameLink'} to='/gamePage'>
+                <Link className={'gameLink'} to={`/${item}`}>
                   <Card
                     // onClick={this.toPlayGamePage}
                     className={'gameCard'} hoverable loading={loading}
-                    cover={<img style={{width: '100%', height: '100%', borderRadius: 3}} src={require(`../../assets/games/FlyBird/img/preview.jpg`)} />}>
-                    <Card.Meta avatar={<Icon type="appstore" />} description={`游戏 ${item}`} />
+                    cover={<img style={{width: '100%', height: '100%', borderRadius: 3}} src={require(`../../assets/games/${item}/img/preview.jpg`)} />}>
+                    <Card.Meta avatar={<Icon type="appstore" />} description={gameConfig[item]} />
                   </Card>
                 </Link>
               );
