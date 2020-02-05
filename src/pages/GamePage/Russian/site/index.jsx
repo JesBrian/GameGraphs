@@ -24,7 +24,7 @@ export default class index extends React.Component {
                 left: (GAME_CONFIG.blockSize + GAME_CONFIG.gaps) * colIndex,
                 width: GAME_CONFIG.blockSize + 'px',
                 height: GAME_CONFIG.blockSize + 'px',
-              }} />
+              }} key={`${rowIndex}-${colIndex}`} />
             })
           })
         }

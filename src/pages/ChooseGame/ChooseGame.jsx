@@ -67,7 +67,7 @@ export default class ChooseGame extends React.Component {
           {
             typeInfo[current].games.map(item => {
               return (
-                <Link className={'gameLink'} to={`/${item}`}>
+                <Link className={'gameLink'} to={`/${item}`} key={item} >
                   <Card
                     // onClick={this.toPlayGamePage}
                     className={'gameCard'} hoverable loading={loading}
