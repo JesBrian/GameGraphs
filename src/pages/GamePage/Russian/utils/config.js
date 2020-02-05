@@ -2,8 +2,8 @@
 const GAME_CONFIG = {
   x: 10,
   y: 20,
-  gaps: 3,
-  blockSize: 22,
+  gaps: 0.1,
+  blockSize: 1,
   nowBlock: [],
   blockMap: [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
