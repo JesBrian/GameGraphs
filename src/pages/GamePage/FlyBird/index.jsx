@@ -3,9 +3,9 @@ import Phaser, {Game} from 'phaser'
 
 import './index.less';
 
-let imgs = [
-  'background', 'title', 'startBtn', 'bird', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-], imgsPath = {};
+import { getImgRes } from '../../../utils/gameUtils.js';
+
+let imgsPath = {};
 
 /**
  * 游戏页面
@@ -16,9 +16,7 @@ export default class Index extends React.Component {
 
     super(props);
 
-    imgs.forEach(key => {
-      imgsPath[key] = require(`../../../assets/games/FlyBird/img/${key}.png`);
-    });
+    imgsPath = getImgRes('FlyBird', ['background', 'title', 'startBtn', 'bird', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
 
     this.state = {};
     

@@ -4,8 +4,7 @@ import './index.less';
 
 import SiteComponent from './site/index';
 
-let imgs = [
-], imgsPath = {};
+let imgsPath = {};
 
 /**
  * 游戏页面
@@ -15,10 +14,6 @@ export default class Index extends React.Component {
     console.log('Russian GamePage Construct');
 
     super(props);
-
-    imgs.forEach(key => {
-      imgsPath[key] = require(`../../../assets/games/Russian/img/${key}.png`);
-    });
 
     this.state = {};
   }
